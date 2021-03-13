@@ -95,50 +95,52 @@ def is_total_order(relation):
     return True
 
 
-print("We express relations as Python tuples of tuples")
-print("For example, this is the 'equality' relation defined over a set of n=4 elements")
+if __name__ == '__main__':
 
-relation = (
-    (1, 0, 0, 0),
-    (0, 1, 0, 0),
-    (0, 0, 1, 0),
-    (0, 0, 0, 1)
-)
+    print("We express relations as Python tuples of tuples")
+    print("For example, this is the 'equality' relation defined over a set of n=4 elements")
 
-print_relation(relation)
+    relation = (
+        (1, 0, 0, 0),
+        (0, 1, 0, 0),
+        (0, 0, 1, 0),
+        (0, 0, 0, 1)
+    )
 
-print("\nLet's make an example with a custom relation.")
-relation = (
-    (0, 1, 1, 1),
-    (1, 0, 0, 1),
-    (1, 0, 0, 0),
-    (1, 1, 0, 0)
-)
+    print_relation(relation)
 
-check_equivalence(relation)
+    print("\nLet's make an example with a custom relation.")
+    relation = (
+        (0, 1, 1, 1),
+        (1, 0, 0, 1),
+        (1, 0, 0, 0),
+        (1, 1, 0, 0)
+    )
 
-print("\nWe can also test if a relation is a partial order.")
-print("We now test the 'lower than' relation...")
-relation = (
-    (1, 0, 0, 0),
-    (1, 1, 0, 0),
-    (1, 1, 1, 0),
-    (1, 1, 1, 1)
-)
+    check_equivalence(relation)
 
-check_partial_order(relation)
-print("Let's if it is a total order...")
-print("Yes it is!" if is_total_order(relation) else "So it is not!")
+    print("\nWe can also test if a relation is a partial order.")
+    print("We now test the 'lower than' relation...")
+    relation = (
+        (1, 0, 0, 0),
+        (1, 1, 0, 0),
+        (1, 1, 1, 0),
+        (1, 1, 1, 1)
+    )
 
-print("\nConsider the following instead ('is subset' defined on the Powerset).")
-relation = (
-    (1, 1, 1, 1),
-    (0, 1, 0, 1),
-    (0, 0, 1, 1),
-    (0, 0, 0, 1)
-)
+    check_partial_order(relation)
+    print("Let's if it is a total order...")
+    print("Yes it is!" if is_total_order(relation) else "So it is not!")
 
-check_partial_order(relation)
-print("Let's if it is a total order...")
-print("Yes it is!" if is_total_order(relation)
-      else "So it is not a total order!")
+    print("\nConsider the following instead ('is subset' defined on the Powerset).")
+    relation = (
+        (1, 1, 1, 1),
+        (0, 1, 0, 1),
+        (0, 0, 1, 1),
+        (0, 0, 0, 1)
+    )
+
+    check_partial_order(relation)
+    print("Let's if it is a total order...")
+    print("Yes it is!" if is_total_order(relation)
+          else "So it is not a total order!")
