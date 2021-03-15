@@ -95,8 +95,7 @@ def is_total_order(relation):
     return True
 
 
-if __name__ == '__main__':
-
+def main():
     print("We express relations as Python tuples of tuples")
     print("For example, this is the 'equality' relation defined over a set of n=4 elements")
 
@@ -144,3 +143,7 @@ if __name__ == '__main__':
     print("Let's if it is a total order...")
     print("Yes it is!" if is_total_order(relation)
           else "So it is not a total order!")
+
+
+if __name__ == '__main__':
+    main()

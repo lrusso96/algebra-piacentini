@@ -68,33 +68,42 @@ class Set(object):
         return Set(name, None, self.repr ^ i.repr, self.size)
 
 
-s1 = Set("S1", "010")
-s2 = Set("S2", "110")
-print("{} has {} element{}".format(s1, len(s1), "" if len(s1) == 1 else "s"))
-print("Its string representation is {}".format(s1.to_string_repr()))
-print("{} has {} element{}".format(s2, len(s2), "" if len(s2) == 1 else "s"))
-print("Its string representation is {}".format(s2.to_string_repr()))
+def main():
 
-s3 = s1.union(s2)
-print("The union set between {} and {} is the set {}".format(s1.name, s2.name, s3))
-print("Its string representation is {}".format(s3.to_string_repr()))
+    s1 = Set("S1", "010")
+    s2 = Set("S2", "110")
+    print("{} has {} element{}".format(
+        s1, len(s1), "" if len(s1) == 1 else "s"))
+    print("Its string representation is {}".format(s1.to_string_repr()))
+    print("{} has {} element{}".format(
+        s2, len(s2), "" if len(s2) == 1 else "s"))
+    print("Its string representation is {}".format(s2.to_string_repr()))
 
-s3 = s1.intersect(s2)
-print("The intersection set between {} and {} is the set {}".format(
-    s1.name, s2.name, s3))
-print("Its string representation is {}".format(s3.to_string_repr()))
+    s3 = s1.union(s2)
+    print("The union set between {} and {} is the set {}".format(
+        s1.name, s2.name, s3))
+    print("Its string representation is {}".format(s3.to_string_repr()))
 
-c1 = s1.comp()
-print("The complement of the set {} is the set {}".format(
-    s1.name, c1))
-print("Its string representation is {}".format(c1.to_string_repr()))
+    s3 = s1.intersect(s2)
+    print("The intersection set between {} and {} is the set {}".format(
+        s1.name, s2.name, s3))
+    print("Its string representation is {}".format(s3.to_string_repr()))
 
-s3 = s1.diff(s2)
-print("The difference set between {} and {} is the set {}".format(
-    s1.name, s2.name, s3))
-print("Its string representation is {}".format(s3.to_string_repr()))
+    c1 = s1.comp()
+    print("The complement of the set {} is the set {}".format(
+        s1.name, c1))
+    print("Its string representation is {}".format(c1.to_string_repr()))
 
-s3 = s2.diff(s1)
-print("The difference set between {} and {} is the set {}".format(
-    s2.name, s1.name, s3))
-print("Its string representation is {}".format(s3.to_string_repr()))
+    s3 = s1.diff(s2)
+    print("The difference set between {} and {} is the set {}".format(
+        s1.name, s2.name, s3))
+    print("Its string representation is {}".format(s3.to_string_repr()))
+
+    s3 = s2.diff(s1)
+    print("The difference set between {} and {} is the set {}".format(
+        s2.name, s1.name, s3))
+    print("Its string representation is {}".format(s3.to_string_repr()))
+
+
+if __name__ == '__main__':
+    main()

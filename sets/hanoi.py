@@ -15,6 +15,10 @@ def hanoi(n):
     return 2**n - 1
 
 
-if __name__ == '__main__':
+def main():
     n = int(input("Insert number of disks: "))
     print("The number of moves is {}".format(hanoi(n)))
+
+
+if __name__ == '__main__':
+    main()
