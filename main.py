@@ -106,18 +106,6 @@ def representation_loop():
     return representation.main()
 
 
-def ask_hanoi():
-    while True:
-        hanoi.main()
-        option = show_basic_options()
-        if option == QUIT_CMD:
-            quit()
-        if option == BACK_CMD:
-            return
-        if option == RUN_AGAIN_CMD:
-            continue
-
-
 def quit():
     clear()
     exit(0)
