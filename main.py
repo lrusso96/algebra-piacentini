@@ -121,14 +121,16 @@ def main():
         elif chapter == 'Sets':
             while True:
                 exercise = ask_sets_exercise()
+                if exercise == BACK_CMD:
+                    break
+                if exercise == QUIT_CMD:
+                    quit()
                 if exercise == 'Hanoi':
                     hanoi_loop()
                 elif exercise == 'Relation':
                     relation_loop()
                 elif exercise == 'Representation':
                     representation_loop()
-                if exercise == BACK_CMD:
-                    break
                 else:
                     show_todo()
         else:
