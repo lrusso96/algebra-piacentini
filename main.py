@@ -2,7 +2,7 @@ from functools import wraps
 from PyInquirer import prompt
 from os import system
 
-from sets import hanoi, relation, representation
+from sets import factorial, hanoi, relation, representation
 
 ABOUT_CMD = 'About'
 RUN_AGAIN_CMD = 'Run again'
@@ -70,7 +70,7 @@ def ask_sets_exercise():
         'type': 'list',
         'name': 'set',
         'message': 'Which exercise would you like to run?',
-        'choices': ['Representation', 'Hanoi', 'Relation', 'Recursion', BACK_CMD, QUIT_CMD]
+        'choices': ['Representation', 'Hanoi', 'Relation', 'Factorial', BACK_CMD, QUIT_CMD]
     }
     answers = prompt(sets_prompt)
     return answers['set']
@@ -89,6 +89,11 @@ def exercise_loop(f):
             if option == RUN_AGAIN_CMD:
                 continue
     return loop
+
+
+@exercise_loop
+def factorial_loop():
+    return factorial.main()
 
 
 @exercise_loop
@@ -115,7 +120,7 @@ def main():
     while True:
         chapter = ask_chapter()
         if chapter == QUIT_CMD:
-            break
+            quit()
         if chapter == ABOUT_CMD:
             show_about()
         elif chapter == 'Sets':
@@ -131,11 +136,12 @@ def main():
                     relation_loop()
                 elif exercise == 'Representation':
                     representation_loop()
+                elif exercise == 'Factorial':
+                    factorial_loop()
                 else:
                     show_todo()
         else:
             show_todo()
-    clear()
 
 
 if __name__ == '__main__':
