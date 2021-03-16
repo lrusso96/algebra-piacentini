@@ -70,7 +70,7 @@ def ask_sets_exercise():
         'type': 'list',
         'name': 'set',
         'message': 'Which exercise would you like to run?',
-        'choices': ['Representation', 'Hanoi', 'Relation', 'Recursion', BACK_CMD]
+        'choices': ['Representation', 'Hanoi', 'Relation', 'Recursion', BACK_CMD, QUIT_CMD]
     }
     answers = prompt(sets_prompt)
     return answers['set']
