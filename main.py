@@ -2,7 +2,7 @@ from functools import wraps
 from PyInquirer import prompt
 from os import system
 
-from sets import factorial, hanoi, relation, representation
+from sets import binomial, factorial, hanoi, relation, representation
 
 ABOUT_CMD = 'About'
 RUN_AGAIN_CMD = 'Run again'
@@ -70,7 +70,7 @@ def ask_sets_exercise():
         'type': 'list',
         'name': 'set',
         'message': 'Which exercise would you like to run?',
-        'choices': ['Representation', 'Hanoi', 'Relation', 'Factorial', BACK_CMD, QUIT_CMD]
+        'choices': ['Representation', 'Hanoi', 'Relation', 'Factorial', 'Binomial', BACK_CMD, QUIT_CMD]
     }
     answers = prompt(sets_prompt)
     return answers['set']
@@ -111,6 +111,11 @@ def representation_loop():
     return representation.main()
 
 
+@exercise_loop
+def binomial_loop():
+    return binomial.main()
+
+
 def quit():
     clear()
     exit(0)
@@ -138,6 +143,8 @@ def main():
                     representation_loop()
                 elif exercise == 'Factorial':
                     factorial_loop()
+                elif exercise == 'Binomial':
+                    binomial_loop()
                 else:
                     show_todo()
         else:
