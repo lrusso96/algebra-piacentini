@@ -17,7 +17,7 @@ def hanoi(n):
 
 def main():
     n = int(input("Insert number of disks: "))
-    print("The number of moves is {}".format(hanoi(n)))
+    print(f"The number of moves is {hanoi(n)}")
 
 
 if __name__ == '__main__':

@@ -30,7 +30,7 @@ def binomial(n, k):
 def main():
     n = int(input("Insert n: "))
     k = int(input("Insert k: "))
-    print("Binomial ({} / {}): {}".format(n, k, binomial(n, k)))
+    print(f'Binomial ({n} / {k}): {binomial(n, k)}')
 
 
 if __name__ == '__main__':

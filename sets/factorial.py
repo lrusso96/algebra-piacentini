@@ -17,7 +17,7 @@ def factorial(n):
 
 def main():
     n = int(input("Enter a non negative number n: "))
-    print("{}! = {}".format(n, factorial(n)))
+    print(f"{n}! = {factorial(n)}")
 
 
 if __name__ == '__main__':

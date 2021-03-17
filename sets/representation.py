@@ -23,7 +23,7 @@ class Set(object):
         ss = ""
         for i, c in enumerate(s):
             if c == "1":
-                ss += "a{}, ".format(i+1)
+                ss += f"a{i+1}, "
         ss = "{" + ss[:-2] + "}"
         return ss
 
@@ -44,27 +44,27 @@ class Set(object):
         return self.to_string_repr().count('1')
 
     def __str__(self):
-        return "{}: {}".format(self.name, self.to_set_repr())
+        return f"{self.name}: {self.to_set_repr()}"
 
     def union(self, b):
         assert self.size == b.size
-        name = "({} ∪ {})".format(self.name, b.name)
+        name = f"({self.name} ∪ {b.name})"
         return Set(name, None, self.repr | b.repr, self.size)
 
     def intersect(self, b):
         assert self.size == b.size
-        name = "({} ∩ {})".format(self.name, b.name)
+        name = f"({self.name} ∩ {b.name})"
         return Set(name, None, self.repr & b.repr, self.size)
 
     def comp(self):
         u = Set("u", "1"*self.size)
-        name = "C({})".format(self.name)
+        name = f"C({self.name})"
         return Set(name, None, self.repr ^ u.repr, self.size)
 
     def diff(self, b):
         assert self.size == b.size
         i = self.intersect(b)
-        name = "({} - {})".format(self.name, b.name)
+        name = f"({self.name} - {b.name})"
         return Set(name, None, self.repr ^ i.repr, self.size)
 
 
@@ -72,37 +72,33 @@ def main():
 
     s1 = Set("S1", "010")
     s2 = Set("S2", "110")
-    print("{} has {} element{}".format(
-        s1, len(s1), "" if len(s1) == 1 else "s"))
-    print("Its string representation is {}".format(s1.to_string_repr()))
-    print("{} has {} element{}".format(
-        s2, len(s2), "" if len(s2) == 1 else "s"))
-    print("Its string representation is {}".format(s2.to_string_repr()))
+    print(f"{s1} has {len(s1)} element{'' if len(s1) == 1 else 's'}")
+    print(f"Its string representation is {s1.to_string_repr()}")
+    print(f"{s2} has {len(s2)} element{'' if len(s2) == 1 else 's'}")
+    print(f"Its string representation is {s2.to_string_repr()}")
 
     s3 = s1.union(s2)
-    print("The union set between {} and {} is the set {}".format(
-        s1.name, s2.name, s3))
-    print("Its string representation is {}".format(s3.to_string_repr()))
+    print(f"The union set between {s1.name} and {s2.name} is the set {s3}")
+    print(f"Its string representation is {s3.to_string_repr()}")
 
     s3 = s1.intersect(s2)
-    print("The intersection set between {} and {} is the set {}".format(
-        s1.name, s2.name, s3))
-    print("Its string representation is {}".format(s3.to_string_repr()))
+    print(
+        f"The intersection set between {s1.name} and {s2.name} is the set {s3}")
+    print(f"Its string representation is {s3.to_string_repr()}")
 
     c1 = s1.comp()
-    print("The complement of the set {} is the set {}".format(
-        s1.name, c1))
-    print("Its string representation is {}".format(c1.to_string_repr()))
+    print(f"The complement of the set {s1.name} is the set {c1}")
+    print(f"Its string representation is {c1.to_string_repr()}")
 
     s3 = s1.diff(s2)
-    print("The difference set between {} and {} is the set {}".format(
-        s1.name, s2.name, s3))
-    print("Its string representation is {}".format(s3.to_string_repr()))
+    print(
+        f"The difference set between {s1.name} and {s2.name} is the set {s3}")
+    print(f"Its string representation is {s3.to_string_repr()}")
 
     s3 = s2.diff(s1)
-    print("The difference set between {} and {} is the set {}".format(
-        s2.name, s1.name, s3))
-    print("Its string representation is {}".format(s3.to_string_repr()))
+    print(
+        f"The difference set between {s2.name} and {s1.name} is the set {s3}")
+    print(f"Its string representation is {s3.to_string_repr()}")
 
 
 if __name__ == '__main__':

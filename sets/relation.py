@@ -24,8 +24,8 @@ def check_equivalence(relation):
     transitive = is_transitive(relation)
     if transitive:
         print("YES")
-    print("So the relation is {} an equivalence relation!".format(
-        "" if reflexive and symmetric and transitive else "NOT"))
+    print(
+        f"So the relation is {'' if reflexive and symmetric and transitive else 'NOT'} an equivalence relation!")
 
 
 def check_partial_order(relation):
@@ -43,14 +43,14 @@ def check_partial_order(relation):
     transitive = is_transitive(relation)
     if transitive:
         print("YES")
-    print("So the relation is {} a partial order!".format(
-        "" if reflexive and antisymmetric and transitive else "NOT"))
+    print(
+        f"So the relation is {'' if reflexive and antisymmetric and transitive else 'NOT'} a partial order!")
 
 
 def is_reflexive(relation):
     for i in range(len(relation)):
         if relation[i][i] == 0:
-            print("Element at index {} does not satisfy refelxivity".format(i))
+            print(f"Element at index {i} does not satisfy refelxivity")
             return False
     return True
 
@@ -59,7 +59,7 @@ def is_symmetric(relation):
     for i in range(len(relation)):
         for j in range(i):
             if relation[i][j] != relation[j][i]:
-                print("Elements at index ({}, {}) do not satisfy symmetry".format(i, j))
+                print(f"Elements at index ({i}, {j}) do not satisfy symmetry")
                 return False
     return True
 
@@ -69,7 +69,7 @@ def is_antisymmetric(relation):
         for j in range(i):
             if relation[i][j] == 1 and relation[j][i] == 1:
                 print(
-                    "Elements at index ({}, {}) do not satisfy antisymmetry".format(i, j))
+                    f"Elements at index ({i}, {j}) do not satisfy antisymmetry")
                 return False
     return True
 
@@ -81,7 +81,7 @@ def is_transitive(relation):
                 for k in range(len(relation)):
                     if i != k and relation[j][k] == 1 and relation[i][k] == 0:
                         print(
-                            "Elements at index ({}, {}, {}) do not satisfy transitivity".format(i, j, k))
+                            f"Elements at index ({i}, {j}, {k}) do not satisfy transitivity")
                         return False
     return True
 
@@ -90,7 +90,7 @@ def is_total_order(relation):
     for i in range(len(relation)):
         for j in range(i):
             if relation[i][j] == 0 and relation[j][i] == 0:
-                print("Elements at index {}, {}, are not comparable!".format(i, j))
+                print(f"Elements at index {i}, {j}, are not comparable!")
                 return False
     return True
 
